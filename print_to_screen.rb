@@ -1,3 +1,6 @@
+number = 1
+
 100.times do 
-puts 1	
+puts number	
+number = number + 1
 end
