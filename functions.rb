@@ -1,3 +1,8 @@
 def mined_minds_function(number)
-	1
+	if number ==3
+		'mined'
+	else
+		number
+	end
+
 end
