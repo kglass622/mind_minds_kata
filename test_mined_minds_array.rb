@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'mined_minds_array.rb'
 
 class TestMMFunctions < Minitest::Test
+	
 	def test_one_equals_one()
 		assert_equal(1,1)
 	end

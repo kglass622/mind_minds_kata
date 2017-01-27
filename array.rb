@@ -1,3 +1,3 @@
-nums = Array(0..100)
+nums = Array(1..100)
 
-puts "#{nums}"
+	puts "#{nums}"
