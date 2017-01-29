@@ -1,20 +1,17 @@
-def create_winner_array(winner,ticket)
-	matches = []
+def winning_draws(my_ticket, winning_numbers)
+	winners = 0
+	#losers = 0
+	winning_numbers.each do |value|
 
-	winner.each do |winner|
+		if my_ticket == value
+			winners += 1
+		end
+	end
+	if winners > 0
+		return true
 
-	if winner == ticket
-			matches << ticket
-	
-		puts "winner!!"
-			
-	elsif winner != ticket
-		 	 
-
-		 puts "loser"
+	else 
+		return false
 	end
 	
-		end
-	
-	matches
 end
