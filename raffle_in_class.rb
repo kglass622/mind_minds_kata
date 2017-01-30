@@ -8,17 +8,20 @@ def raffle_function(ticket_num, winning_num_array)
 	# else
 	# 	false
 	# end
-	counter = 0
+	counter = []
 	winning_num_array.each do |ticket|
 		if ticket_num == ticket 
-			counter = counter + 1
+			counter << ticket
+		puts counter
 		end
 			
 		end
-		if counter > 0
+		if counter.length > 0
 			true
 		else
 			false
 	end
+	#puts counter
+	#return counter
 
 end
