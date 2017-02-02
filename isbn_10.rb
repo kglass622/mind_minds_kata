@@ -6,3 +6,7 @@ def valid_isbn_length?(booknum10) # passing a string, and want a boolean out
 		false
 	end
 end
+
+def anti_space(isbn_number)
+	isbn_number(' ')
+end
