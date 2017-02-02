@@ -19,13 +19,24 @@ class Isbn_function < MiniTest::Test
 		assert_equal(true, valid_isbn_length?(booknum10))
 	end	
 
-	def remove_spaces
-		isbn_string = '1234 678 90 88'
-		assert_equal('12346789088', anti_space(booknum10))
+	def test_remove_spaces_dashes
+		isbn_string = '12-34 67-8 90 88'
+		assert_equal('12346789088', anti_space(isbn_string))
 	end
 
-	
-		
+	def test_check_for_letters
+		num = '12k3467g890k'
+		assert_equal(true, check_for_letters(num))
+	end
+
+	def test_if_x_at_end
+		num = '123456789x'
+		assert_equal(true, check_for_x(num))
+	end
+
+
+
+
 
 
 end
