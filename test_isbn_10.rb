@@ -57,6 +57,13 @@ class Isbn_function < MiniTest::Test
 		assert_equal(false, check_for_symbol(isbn_num))
 	end
 
+	def test_check_for_symbol_false_short
+
+		isbn_num = '12345w'
+
+		assert_equal(false, check_for_symbol(isbn_num))
+	end
+
 
 
 	def test_isbn_is_array_of_individual_numbers
@@ -65,5 +72,18 @@ class Isbn_function < MiniTest::Test
 
 		assert_equal(["1", "2", "3", "4", "5", "6", "7", "8", "9"], isbn_array(isbn_num))
 
+	end
+
+end
+class TestMultiply < Minitest::Test
+
+	def test_mulyiply_function
+		results = multiply('123456789')
+		assert_equal([1, 4, 9, 16, 25, 36, 49, 64, 81], results)
+
+	end
+	def test_sum_of_isbn
+		results = sum([1,2,3,4,5,6,7,8,9])
+		assert_equal(45, results)
 	end
 end
