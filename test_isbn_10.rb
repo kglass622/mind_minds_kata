@@ -91,7 +91,7 @@ class TestMultiply < Minitest::Test
 		assert_equal(0, results)
 	end
 	def test_returns_modulus_11
-		results = remainder(232)
+		results = remainder(12)
 		assert_equal(1, results)
 	end
 	def test_remainder_results_to_last_digit
@@ -106,4 +106,93 @@ class TestMultiply < Minitest::Test
 		results = compaire_check_digit('123654789')
 		assert_equal(false, results)
 	end
+	def test_remainder_false2
+		results = compaire_check_digit('1236589x') #short number
+		assert_equal(false, results)
+	end
+end
+
+
+class Testisbn13 < Minitest::Test
+
+	def test_valid_13_isbn
+		isbn13 = '9780470059029'
+		assert_equal(true, valid13isbn?(isbn13))
+
+	end
+	def test_isbn13_invalid
+		isbn13 = '9720592241023'
+		assert_equal(false, valid13isbn?(isbn13))
+
+	end
+	
+
+	def test_valid_isbn_10_digit_in_main_function
+
+		isbn_num = '0471958697'
+
+		assert_equal(true, valid_isbn?(isbn_num))
+
+	end
+
+
+
+	def test_invalid_isbn_10_returns_false_main_function
+
+		isbn_num = '047-958697'
+
+		assert_equal(false, valid_isbn?(isbn_num))
+
+	end
+
+
+
+	def test_invalid_isbn_10_symbols_main_function
+
+		isbn_num = '047&958697'
+
+		assert_equal(false, valid_isbn?(isbn_num))
+
+	end
+
+
+
+	def test_valid_isbn_10_x_main_function
+
+		isbn_num = '877195869x'
+
+		assert_equal(true, valid_isbn?(isbn_num))
+
+	end
+
+
+
+	def test_valid_isbn_10_X_main_function_2
+
+		isbn_num = '877 19-58 69X'
+
+		assert_equal(true, valid_isbn?(isbn_num))
+
+	end
+
+
+
+	def test_valid_isbn_10_illegal_character_main_function
+
+		isbn_num = '0294566@82'
+
+		assert_equal(false, valid_isbn?(isbn_num))
+
+	end
+
+
+
+	def test_valid_13_isbn_2
+
+		isbn13 = '978 0-13 149505-0'
+
+		assert_equal(true, valid_isbn?(isbn13))
+
+	end
+
 end

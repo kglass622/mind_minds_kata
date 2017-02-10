@@ -75,10 +75,73 @@ def compaire_check_digit(isbn_num)
 
 		if isbn_mod == 10 && isbn_num[-1].match(/[xX]/)
 			true
-		elsif isbn_mod != 10 && isbn_num[-1] == isbn_mod
+		elsif 
+			isbn_num[-1].to_i == isbn_mod
 			true
 		else 
 			false
 		end
 end
 
+def valid13isbn?(isbn_string)
+				#takes string and returns boolean
+	isbn13_array = isbn_string.split('').map(&:to_i)# splits the string to create an array of individual numbers ["1", "2", etc]
+	#isbn13_array_intenger = []#creates empty array
+	#isbn13_array.each do |item|
+	#isbn13_array_intenger << item.to_i #turns string t intenger
+	#end
+	#p isbn_array_intenger
+	sum = 0 
+	check_digit = 0
+	isbn13_array.each_with_index do |value, index|
+		break if index == 12
+			if index % 2 == 0
+			sum += value * 1
+			else
+			sum += value * 3
+			end
+		end
+			sum = sum % 10
+			check_digit = 10 - sum
+		if  check_digit == 10 
+			check_digit = 0
+		end
+		isbn13_array[12] == check_digit
+	end
+
+	def valid_isbn?(isbn_string)
+
+	# if valid isbn and replace '0' with illegal character, the character comes back as '0' (false positive)
+
+	# takes in string, returns boolean
+
+	isbn_string_no_spaces_no_dashes = anti_space_and_dashes(isbn_string)
+
+		if check_for_symbol(isbn_string_no_spaces_no_dashes) && isbn_string_no_spaces_no_dashes.length == 10
+
+			check_for_letters(isbn_string_no_spaces_no_dashes)
+
+			# check_for_symbols(isbn_string_no_spaces_no_dashes)
+
+			check_for_x(isbn_string_no_spaces_no_dashes)
+
+			compare_check_digit(isbn_string_no_spaces_no_dashes)
+
+		
+
+		elsif
+
+			# check_for_symbols(isbn_string_no_spaces_no_dashes) && 
+
+			isbn_string_no_spaces_no_dashes.length == 13
+
+			check_for_letters(isbn_string_no_spaces_no_dashes)
+
+			valid13isbn?(isbn_string_no_spaces_no_dashes)
+
+		else
+
+			false
+
+		end
+end
