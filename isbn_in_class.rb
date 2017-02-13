@@ -60,7 +60,7 @@ def remove_spaces_and_dashes(isbn_number)
 	isbn_number.delete(' ' '-')
 end
 
-def check_for_letters(letters) # change later
+def check_for_letters(letters) 
 
 	if letters.chop.match(/[a-zA-Z]/)
 		false
@@ -88,16 +88,14 @@ def check_for_symbols(symbols) # change later
 end
 
 def valid_isbn?(isbn_string)
-	# if valid isbn and replace '0' with illegal character, the character comes back as '0' (false positive)
-	# takes in string, returns boolean
+	
 	isbn_string_no_spaces_no_dashes = remove_spaces_and_dashes(isbn_string)
 		if check_for_symbols(isbn_string_no_spaces_no_dashes) && isbn_string_no_spaces_no_dashes.length == 10
 			check_for_letters(isbn_string_no_spaces_no_dashes)
-			# check_for_symbols(isbn_string_no_spaces_no_dashes)
 			check_for_x(isbn_string_no_spaces_no_dashes)
 			compare_check_digit(isbn_string_no_spaces_no_dashes)
 		elsif
-			# check_for_symbols(isbn_string_no_spaces_no_dashes) && 
+			
 			isbn_string_no_spaces_no_dashes.length == 13
 			check_for_letters(isbn_string_no_spaces_no_dashes)
 			valid13isbn?(isbn_string_no_spaces_no_dashes)
@@ -132,9 +130,9 @@ def remainder(sum)
 end
 
 def compare_check_digit(isbn_num)
-	isbn_value = multiply(isbn_num) # function equals variable(backwards)
-	isbn_total = sum(isbn_value)	# function equals variable('')
-	isbn_mod = remainder(isbn_total) # function equals variable('')
+	isbn_value = multiply(isbn_num) 
+	isbn_total = sum(isbn_value)	
+	isbn_mod = remainder(isbn_total) 
 
 	if isbn_mod == 10 && isbn_num[-1].match(/[xX]/)
 		true

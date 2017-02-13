@@ -1,4 +1,4 @@
-def close_but_not_quite(winning_num, ticket_num)
+def close_but_not(winning_num, ticket_num)
  		matches = 0
  		index_position = 0
  		ticket_num.length.times do 
@@ -14,17 +14,16 @@ def close_but_not_quite(winning_num, ticket_num)
  			else
  				false
  			end
- 	
- 	end
+ 	 	end
 
  def returning_function(ticket_num, winning_num)
  	 array = []
 
- 	 winning_num.each do |winning_num|
- 	 	if off_by_one (winning_num, ticket_num)
+ 	 	   ticket_num.each do |chicken|
+ 	 	if close_but_not(winning_num, chicken)
  	 	
- 	 		array << winning_num
+ 	 		array << chicken
  	 	end
  	end
 	array
- end
+ end	

@@ -44,32 +44,24 @@ class Isbn_function < MiniTest::Test
 	end
 
 	def test_check_for_symbol
-
 		isbn_num = '123;456$7890'
-
 		assert_equal(true, check_for_symbol(isbn_num))
 	end
 	
 	def test_check_for_symbol_false
-
 		isbn_num = '1234567890'
-
 		assert_equal(false, check_for_symbol(isbn_num))
 	end
 
 	def test_check_for_symbol_false_short
-
 		isbn_num = '12345w'
-
 		assert_equal(false, check_for_symbol(isbn_num))
 	end
 
 
 
 	def test_isbn_is_array_of_individual_numbers
-
 		isbn_num = '123456789'
-
 		assert_equal(["1", "2", "3", "4", "5", "6", "7", "8", "9"], isbn_array(isbn_num))
 
 	end
@@ -128,49 +120,31 @@ class Testisbn13 < Minitest::Test
 	
 
 	def test_valid_isbn_10_digit_in_main_function
-
 		isbn_num = '0471958697'
-
 		assert_equal(true, valid_isbn?(isbn_num))
 
 	end
-
-
 
 	def test_invalid_isbn_10_returns_false_main_function
-
 		isbn_num = '047-958697'
-
 		assert_equal(false, valid_isbn?(isbn_num))
 
 	end
-
-
 
 	def test_invalid_isbn_10_symbols_main_function
-
 		isbn_num = '047&958697'
-
 		assert_equal(false, valid_isbn?(isbn_num))
 
 	end
 
-
-
 	def test_valid_isbn_10_x_main_function
-
 		isbn_num = '877195869x'
-
 		assert_equal(true, valid_isbn?(isbn_num))
 
 	end
 
-
-
 	def test_valid_isbn_10_X_main_function_2
-
 		isbn_num = '877 19-58 69X'
-
 		assert_equal(true, valid_isbn?(isbn_num))
 
 	end
@@ -178,19 +152,12 @@ class Testisbn13 < Minitest::Test
 
 
 	def test_valid_isbn_10_illegal_character_main_function
-
 		isbn_num = '0294566@82'
-
 		assert_equal(false, valid_isbn?(isbn_num))
 
 	end
-
-
-
 	def test_valid_13_isbn_2
-
 		isbn13 = '978 0-13 149505-0'
-
 		assert_equal(true, valid_isbn?(isbn13))
 
 	end

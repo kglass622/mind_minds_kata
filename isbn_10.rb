@@ -111,32 +111,19 @@ def valid13isbn?(isbn_string)
 
 	def valid_isbn?(isbn_string)
 
-	# if valid isbn and replace '0' with illegal character, the character comes back as '0' (false positive)
-
-	# takes in string, returns boolean
-
-	isbn_string_no_spaces_no_dashes = anti_space_and_dashes(isbn_string)
+		isbn_string_no_spaces_no_dashes = anti_space_and_dashes(isbn_string)
 
 		if check_for_symbol(isbn_string_no_spaces_no_dashes) && isbn_string_no_spaces_no_dashes.length == 10
-
 			check_for_letters(isbn_string_no_spaces_no_dashes)
-
 			# check_for_symbols(isbn_string_no_spaces_no_dashes)
-
 			check_for_x(isbn_string_no_spaces_no_dashes)
-
 			compare_check_digit(isbn_string_no_spaces_no_dashes)
-
-		
 
 		elsif
 
 			# check_for_symbols(isbn_string_no_spaces_no_dashes) && 
-
 			isbn_string_no_spaces_no_dashes.length == 13
-
 			check_for_letters(isbn_string_no_spaces_no_dashes)
-
 			valid13isbn?(isbn_string_no_spaces_no_dashes)
 
 		else
