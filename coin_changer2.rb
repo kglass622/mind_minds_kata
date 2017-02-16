@@ -17,9 +17,14 @@ def coin_changer(change)
 		return broke
 	end
 
+	if change >= 10
+		broke[:dime] = 1
+		change = change - 10
+	end
+
 	if change >= 5
 		broke[:nickel] = 1
-	#	change = change - 5
+		change = change - 5
 	end
 
 	if change >= 1
