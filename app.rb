@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative 'isbn_in_class.rb'
 
 get '/' do
-#	'hello homie'
+
 erb :isbn_input, :locals => { :results => '', :isbn_num => '', :message_one => '', :number => ''}
 end
 
