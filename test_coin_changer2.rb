@@ -38,4 +38,24 @@ class Test_coin_changer2 < Minitest::Test
 	def test_1_dime
 		assert_equal({:dime => 1}, coin_changer(10))
 	end
+	
+	def test_1_dime_2_pennies
+		assert_equal({:dime => 1, :penny => 2}, coin_changer(12))
+	end
+
+	def test_1_quarter
+		assert_equal({:quarter => 1}, coin_changer(25))
+	end
+
+	def test_2_dime
+		assert_equal({:dime => 2}, coin_changer(20))
+	end
+
+	# def test_2_quarter
+	# 	assert_equal({:quarter => 2}, coin_changer(50))
+	# end
+
+	
+
+
 end

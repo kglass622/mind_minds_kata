@@ -7,30 +7,44 @@
 
 
 def coin_changer(change)
-	broke = {}
-	dime = 10
-	quarter = 25
-	penny = 1
-	nickel = 5
+     pull_value_from_hash = {}
+	 dime = 10		
+	 quarter = 25 		
+	# penny = 1				
+	 #nickel = 5				
 
 	if change == 0
-		return broke
+		return pull_value_from_hash
+	end
+			#have to work backwards to make this work
+					#must do higher value first
+	
+	if  change >= 25
+		pull_value_from_hash[:quarter] = change/quarter
+		change = change - 25
 	end
 
-	if change >= 10
-		broke[:dime] = 1
-		change = change - 10
+
+	if change >= 20
+		pull_value_from_hash[:dime] = change/dime #need this explained
+		change = change - 20
 	end
 
-	if change >= 5
-		broke[:nickel] = 1
+
+	if  change >= 10			
+		pull_value_from_hash[:dime] = 1
+		change = change - 10 #not sure why i need this but doesnt work without it
+	end
+
+	if  change >= 5
+		pull_value_from_hash[:nickel] = 1
 		change = change - 5
 	end
 
-	if change >= 1
-		broke[:penny] = change
+	if  change >= 1
+		pull_value_from_hash[:penny] = change
 	end
 	
 	
-	broke
+	pull_value_from_hash
 end

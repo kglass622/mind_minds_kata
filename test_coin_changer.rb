@@ -47,4 +47,6 @@ class Test_coin_changer < Minitest::Test
 	def test_27_cents_returns_1_quarter_and_2_pennies
 		assert_equal({:penny => 2, :quarter => 1}, coin_changer(27))
 	end
+
+	
 end
