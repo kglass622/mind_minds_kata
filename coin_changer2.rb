@@ -6,4 +6,9 @@ def coin_changer(change)
 	if change == 0
 		return broke
 	end
+
+	if change >= 1
+		broke[:penny] = change
+	end
+	broke
 end
